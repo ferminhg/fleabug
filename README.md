@@ -4,7 +4,7 @@ FleaBug: GoLang Dumper
 FleaBug provides an easy and pretty `fmt.Println` alternative to `Go Lang` projects. 
 
 ```go
-feabug_dump("wopwop")
+fleabug.Dump("wopwop")
 ````
 
 ## Documentation
