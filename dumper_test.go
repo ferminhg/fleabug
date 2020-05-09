@@ -29,9 +29,25 @@ func TestDumpWithString(t *testing.T) {
 		out: testOutput,
 	}
 	dumper.dump("wopwop")
-	expectedDump := "wopwop (string)\n"
+	expectedDump := "wopwop\t(string)\n"
 	resultDump := string(testOutput.String())
 	if expectedDump != resultDump {
 		t.Errorf("the message is not the expected [" + expectedDump + "]:" + resultDump)
 	}
 }
+
+
+func TestDumpWithIntg(t *testing.T) {
+	testOutput := new(bytes.Buffer)
+	testOutput.Reset()
+	dumper := Dumper{
+		out: testOutput,
+	}
+	dumper.dump(1)
+	expectedDump := "1\t(int)\n"
+	resultDump := string(testOutput.String())
+	if expectedDump != resultDump {
+		t.Errorf("the message is not the expected [" + expectedDump + "]:" + resultDump)
+	}
+}
+

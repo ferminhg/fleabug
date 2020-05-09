@@ -1,6 +1,14 @@
 package fleabug
 
-// get params and convert in one string
-func formatter(params ...interface{}) string {
-	return "wopwop (string)"
+import (
+	"fmt"
+	"reflect"
+)
+
+// formatter get object and formatt it
+func formatter(object interface{}) string {
+	xValue := reflect.ValueOf(object)
+	xType := xValue.Type()
+	logger := fmt.Sprintf("%v\t(%v)", xValue, xType)
+	return logger
 }
