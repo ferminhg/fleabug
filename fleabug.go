@@ -23,7 +23,9 @@ func newDumper() *Dumper {
 
 // dump print default configuration given arguments
 func (pp *Dumper) dump(params ...interface{}) (n int, err error) {
-	return fmt.Println(pp.out, "wopwop")
+	result := formatter(params)
+	//fmt.Println("\t\tdump: [" + result + "]", &pp.out)
+	return fmt.Fprintln(pp.out, result)
 }
 
 // Output returns dumper's output.
@@ -33,9 +35,7 @@ func (pp *Dumper) Output() io.Writer {
 
 // SetOutput returns dumper's output.
 func (pp *Dumper) SetOutput(out io.Writer) {
-	// pp.outLock.Lock()
 	pp.out = out
-	// pp.outLock.Unlock()
 }
 
 // Dump prints given arguments with newline.
