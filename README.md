@@ -5,6 +5,15 @@ FleaBug provides an easy and pretty `fmt.Println` alternative to `Go Lang` proje
 
 ```go
 fleabug.Dump("wopwop")
+fleabug.Dump(1, 2, 3)
+````
+
+```go
+wopwop  (string)
+
+1 (int)
+2 (int)
+3 (int)
 ````
 
 ## Documentation
