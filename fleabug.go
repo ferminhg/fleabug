@@ -15,8 +15,6 @@ type Dumper struct {
 	//configs
 }
 
-
-
 func newDumper() *Dumper {
 	return &Dumper{
 		out: defaultOut,
