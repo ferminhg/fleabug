@@ -2,13 +2,21 @@ FleaBug: GoLang Dumper
 =========================
 
 FleaBug provides an easy and pretty `fmt.Println` alternative to `Go Lang` projects.
-It show value plus type and also trace (file, line, and func)
+It shows value plus type and also trace (file, line, and func)
+
+## Quick Start
+
+Add this import line to the file you're working in:
+```Go
+import "github.com/ferminhg/fleabug"
+```
 
 ```go
 fleabug.Dump("wopwop")
 fleabug.Dump(1, 2, 3)
 ````
 
+## Sample Dump Output
 ```go
 ------------------------------------------------------------
 wopwop  (string)
@@ -24,6 +32,12 @@ wopwop  (string)
 # func: github.com/ferminhg/fleabug.TestDumpDummy
 ------------------------------------------------------------
 ````
+
+## Installation
+
+```bash
+$ go get -u github.com/ferminhg/fleabug
+```
 
 ## Credits
 
