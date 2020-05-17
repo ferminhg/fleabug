@@ -23,9 +23,12 @@ func newDumper() *Dumper {
 
 // dumpData print default configuration given arguments
 func (pp *Dumper) dumpData(params ...interface{}) (n int, err error) {
-	var logger string
-	for _, object := range params {
-		logger += fmt.Sprintf("%v", formatter(object))
+	var logger, newLine string
+	for item, object := range params {
+		if newLine = ""; item < len(params)-1 {
+			newLine = "\n"
+		}
+		logger += fmt.Sprintf("%v"+newLine, formatter(object))
 	}
 	// fmt.Println("\t\tdump: [" + logger + "]")
 	return fmt.Fprintln(pp.out, logger)

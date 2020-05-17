@@ -9,6 +9,6 @@ import (
 func formatter(object interface{}) string {
 	xValue := reflect.ValueOf(object)
 	xType := xValue.Type()
-	logger := fmt.Sprintf("%v\t(%v)", xValue, xType)
+	logger := fmt.Sprintf("%v    (%v)", xValue, xType)
 	return logger
 }

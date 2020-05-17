@@ -19,7 +19,7 @@ func TestDumpWithString(t *testing.T) {
 	dumper := dumperFactory(testOutput)
 
 	dumper.dumpData("wopwop")
-	expectedDump := "wopwop\t(string)\n"
+	expectedDump := "wopwop    (string)\n"
 	resultDump := string(testOutput.String())
 	if expectedDump != resultDump {
 		t.Errorf("the message is not the expected [" + expectedDump + "]:" + resultDump)
@@ -27,7 +27,7 @@ func TestDumpWithString(t *testing.T) {
 	if DefaultOutput() == testOutput {
 		t.Errorf("failed to SetOutput")
 	}
-	if testOutput.Len() != 16 {
+	if testOutput.Len() != 19 {
 		t.Errorf("testOutput don't return right value")
 	}
 }
@@ -36,7 +36,7 @@ func TestDumpWithInt(t *testing.T) {
 	testOutput := new(bytes.Buffer)
 	dumper := dumperFactory(testOutput)
 	dumper.dumpData(1)
-	expectedDump := "1\t(int)\n"
+	expectedDump := "1    (int)\n"
 	if expectedDump != testOutput.String() {
 		t.Errorf("the message is not the expected: " + expectedDump)
 	}
@@ -60,4 +60,5 @@ func TestDumpDummy(t *testing.T) {
 		t.Skip("skipping testing in short mode")
 	}
 	Dump("wopwop")
+	Dump(1, 2, 3)
 }
