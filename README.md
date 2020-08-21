@@ -1,5 +1,7 @@
-FleaBug: GoLang Dumper
-=========================
+# FleaBug: GoLang Dumper
+
+[![Go Report Card](https://goreportcard.com/badge/github.com/ferminhg/fleabug)](https://goreportcard.com/report/github.com/ferminhg/fleabug)
+[![Maintainability](https://api.codeclimate.com/v1/badges/e381261a2673537e1439/maintainability)](https://codeclimate.com/github/ferminhg/fleabug/maintainability)
 
 FleaBug provides an easy and pretty `fmt.Println` alternative to `Go Lang` projects.
 It shows value plus type and also trace (file, line, and func)
