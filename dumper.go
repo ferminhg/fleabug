@@ -17,7 +17,6 @@ type Dumper struct {
 func newDumper() *Dumper {
 	return &Dumper{
 		out: defaultOut,
-
 	}
 }
 
@@ -33,6 +32,7 @@ func (pp *Dumper) dumpData(params ...interface{}) (n int, err error) {
 	// fmt.Println("\t\tdump: [" + logger + "]")
 	return fmt.Fprintln(pp.out, logger)
 }
+
 //dumpTrace  print trace
 func (pp *Dumper) dumpTrace(pc uintptr, file string, line int, ok bool) (n int, err error) {
 	var traceMessage string
@@ -43,7 +43,7 @@ func (pp *Dumper) dumpTrace(pc uintptr, file string, line int, ok bool) (n int, 
 	return fmt.Fprint(pp.out, traceMessage)
 }
 
-func (pp *Dumper) blocker() (n int, err error){
+func (pp *Dumper) blocker() (n int, err error) {
 	return fmt.Fprintln(pp.out, strings.Repeat(string("-"), 60))
 }
 

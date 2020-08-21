@@ -46,14 +46,13 @@ func TestDumpTraceNoOk(t *testing.T) {
 	testOutput := new(bytes.Buffer)
 	dumper := dumperFactory(testOutput)
 	var u = uintptr(unsafe.Pointer(testOutput))
-	
+
 	dumper.dumpTrace(u, "", 0, false)
 	if "" != testOutput.String() {
 		t.Errorf("the trace message is not empty")
 	}
 
 }
-
 
 func TestDumpDummy(t *testing.T) {
 	if testing.Short() {
