@@ -19,9 +19,8 @@ jobs:
       env:
         CC_TEST_REPORTER_ID: ${{secrets.CC_TEST_REPORTER_ID}}
       with:
-        coverageCommand: go test -coverprofile ${{github.workspace}}/c.out ./...
+        coverageCommand: go test ./...
         debug: true
-        coverageLocations: ${{github.workspace}}/c.out:gcov
     # - name: Test & coverage
     #   run: |
     #     curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
