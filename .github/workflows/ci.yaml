@@ -1,0 +1,24 @@
+name: Coverage test
+on: [push]
+jobs:
+  test:
+    strategy:
+      matrix:
+        go-version: [1.15.x]
+        os: [ubuntu-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+    - name: Install Go
+      uses: actions/setup-go@v2
+      with:
+        go-version: ${{ matrix.go-version }}
+    - name: Checkout code
+      uses: actions/checkout@v2
+    - name: Test & coverage
+      run: |
+        export CC_TEST_REPORTER_ID=${{ secrets.CC_TEST_REPORTER_ID }}
+        curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+        chmod +x ./cc-test-reporter
+        ./cc-test-reporter before-build
+        go test -coverprofile c.out ./...
+        ./cc-test-reporter after-build c.out -t gocov --prefix github.com/ferminhg/fleabug/ --exit-code $?
