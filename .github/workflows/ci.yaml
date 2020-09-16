@@ -23,5 +23,5 @@ jobs:
       with:
         coverageCommand: go test ./... -cover -coverprofile cover.out
         coverageLocations: |
-         ${{github.workspace}}/cover.out:html
+         ${{github.workspace}}/cover.out:gcov
         debug: true
