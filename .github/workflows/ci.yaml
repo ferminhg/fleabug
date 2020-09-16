@@ -21,4 +21,4 @@ jobs:
         chmod +x ./cc-test-reporter
         ./cc-test-reporter before-build
         go test -coverprofile c.out ./...
-        ./cc-test-reporter after-build c.out -t gocov --debug --exit-code $?
+        ./cc-test-reporter after-build c.out -t gocov --prefix github.com/ferminhg/fleabug/ --debug --exit-code $?
