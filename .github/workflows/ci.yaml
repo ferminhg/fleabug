@@ -25,5 +25,4 @@ jobs:
 
       run: |
         pwd
-        ./cc-test-reporter --debug format-coverage -t gcov after-build -p {{ github.workspace }}/c.out
-        ./cc-test-reporter after-build -t gcov --exit-code $?
+        ./cc-test-reporter after-build -t gcov -p {{ github.workspace }}/c.out --exit-code $?
