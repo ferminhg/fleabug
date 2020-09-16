@@ -14,10 +14,18 @@ jobs:
         go-version: ${{ matrix.go-version }}
     - name: Checkout code
       uses: actions/checkout@v2
-    - name: Prepare for test
-      run: |
-        curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
-        chmod +x ./cc-test-reporter
-        ./cc-test-reporter before-build
-        go test -coverprofile c.out ./...
-        ./cc-test-reporter after-build c.out --debug -t gcov -p --exit-code $?
+    - name: Test & publish code coverage
+      uses: paambaati/codeclimate-action@v2.6.0
+      env:
+        CC_TEST_REPORTER_ID: {{secret.CC_TEST_REPORTER_ID}}
+      with:
+        coverageCommand: go test -coverprofile c.out ./...
+        debug: true
+        coverageLocations: ${{github.workspace}}/c.out:gcov
+    # - name: Test & coverage
+    #   run: |
+    #     curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+    #     chmod +x ./cc-test-reporter
+    #     ./cc-test-reporter before-build
+    #     go test -coverprofile c.out ./...
+    #     ./cc-test-reporter after-build c.out --debug -t gcov -p --exit-code $?
