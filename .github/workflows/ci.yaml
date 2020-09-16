@@ -20,4 +20,4 @@ jobs:
         chmod +x ./cc-test-reporter
         ./cc-test-reporter before-build
         go test -coverprofile c.out ./...
-        ./cc-test-reporter after-build --debug -t gcov -p --exit-code $?
+        ./cc-test-reporter after-build c.out --debug -t gcov -p --exit-code $?
