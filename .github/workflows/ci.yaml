@@ -22,4 +22,4 @@ jobs:
     - name: Run Coverage
       run: go test -coverprofile c.out ./...
     - name: Send Coverage
-      run: ./cc-test-reporter after-build --exit-code
+      run: ./cc-test-reporter --debug after-build
