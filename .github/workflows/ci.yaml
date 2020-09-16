@@ -19,10 +19,5 @@ jobs:
         curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
         chmod +x ./cc-test-reporter
         ./cc-test-reporter before-build
-    - name: Run Coverage
-      run: go test -coverprofile c.out ./...
-    - name: Send Coverage
-
-      run: |
-        pwd
-        ./cc-test-reporter after-build -t gcov -p {{ github.workspace }}/c.out --exit-code $?
+        go test -coverprofile c.out ./...
+        ./cc-test-reporter after-build --debug -t gcov -p --exit-code $?
