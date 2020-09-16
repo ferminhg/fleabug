@@ -22,4 +22,7 @@ jobs:
     - name: Run Coverage
       run: go test -coverprofile c.out ./...
     - name: Send Coverage
-      run: ./cc-test-reporter --debug after-build
+
+      run: |
+        ./cc-test-reporter --debug format-coverage -t gcov after-build -p {{ github.workspace }}
+        ./cc-test-reporter after-build -t gcov --exit-code $?
