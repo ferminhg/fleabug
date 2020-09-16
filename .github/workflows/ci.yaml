@@ -24,5 +24,6 @@ jobs:
     - name: Send Coverage
 
       run: |
-        ./cc-test-reporter --debug format-coverage -t gcov after-build -p {{ github.workspace }}
+        pwd
+        ./cc-test-reporter --debug format-coverage -t gcov after-build -p {{ github.workspace }}/c.out
         ./cc-test-reporter after-build -t gcov --exit-code $?
