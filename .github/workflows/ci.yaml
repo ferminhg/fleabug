@@ -21,7 +21,5 @@ jobs:
       env:
         CC_TEST_REPORTER_ID: ${{secrets.CC_TEST_REPORTER_ID}}
       with:
-        coverageCommand: go test ./... -cover -coverprofile cover.out
-        coverageLocations: |
-         ${{github.workspace}}/cover.out:gcov
+        coverageCommand: go test -coverprofile c.out ./...
         debug: true
